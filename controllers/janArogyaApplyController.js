@@ -85,7 +85,7 @@ exports.updateJanArogyaStatus = async (req, res) => {
   try {
     const { status } = req.body;
     const app = await JanArogyaApply.findByIdAndUpdate(
-      req.params.id,
+      req.params._id,
       { status },
       { new: true }
     );

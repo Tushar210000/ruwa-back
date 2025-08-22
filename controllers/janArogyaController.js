@@ -120,11 +120,11 @@ exports.updateApplicationStatus = async (req, res) => {
 // EMPLOYEE/USER: Withdraw application
 exports.withdrawApplication = async (req, res) => {
   try {
-    const app = await JanArogyaApplication.findById(req.params.id);
+    const app = await JanArogyaApplication.findById(req.params._id);
     if (!app) return res.status(404).json({ message: "Application not found" });
 
-    const isOwner = String(app.appliedBy) === req.user.id;
-    const isForUser = String(app.forUser) === req.user.id;
+    const isOwner = String(app.appliedBy) === req.user._id;
+    const isForUser = String(app.forUser) === req.user._id;
     if (!isOwner && !isForUser) {
       return res.status(403).json({ message: "Not authorized" });
     }

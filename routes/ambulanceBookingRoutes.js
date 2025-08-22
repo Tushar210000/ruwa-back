@@ -42,7 +42,7 @@ router.get(
 );
 
 router.patch(
-  "/employee/withdraw/:id",
+  "/employee/withdraw/:_id",
   auth,
   authorizeRole("EMPLOYEE", "USER"),
   ambulanceCtrl.withdrawBooking

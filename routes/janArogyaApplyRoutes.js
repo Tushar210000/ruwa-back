@@ -49,6 +49,6 @@ router.get("/employee/applications", auth, authorizeRole("EMPLOYEE"), getEmploye
 router.get("/admin/all", auth, authorizeRole("ADMIN"), getAllApplications);
 
 // ADMIN: Update status
-router.put("/:id/status", auth, authorizeRole("ADMIN"), updateJanArogyaStatus);
+router.put("/:_id/status", auth, authorizeRole("ADMIN"), updateJanArogyaStatus);
 
 module.exports = router;

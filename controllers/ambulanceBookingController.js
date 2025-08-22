@@ -94,14 +94,14 @@ exports.updateBookingStatus = async (req, res) => {
 
 // USER or EMPLOYEE: Withdraw booking
 exports.withdrawBooking = async (req, res) => {
-  const { id } = req.params;
+  const { _id } = req.params;
 
   try {
-    const booking = await AmbulanceBooking.findById(id);
+    const booking = await AmbulanceBooking.findById(_id);
     if (!booking) return res.status(404).json({ message: "Booking not found" });
 
-    const isOwner = String(booking.appliedBy) === req.user.id;
-    const isForUser = String(booking.forUser) === req.user.id;
+    const isOwner = String(booking.appliedBy) === req.user._id;
+    const isForUser = String(booking.forUser) === req.user._id;
 
     if (!isOwner && !isForUser) {
       return res.status(403).json({ message: "Not authorized to withdraw this booking" });
