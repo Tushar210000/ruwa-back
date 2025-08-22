@@ -51,6 +51,7 @@ app.use("/api/services/apply-kendra", applyKendra);
 app.use("/api/employee/", employeeRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/admin",dashBoardRoutes)
+
 app.use("/api/u",profileRoutes)
 // Start server
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
