@@ -40,7 +40,7 @@ connectDB();
 
 // Routes
 app.use("/api/popup", popupRoutes);
-app.use("/api/states/", statesRouter);
+app.use("/api/states", statesRouter);
 app.use("/api/users", userRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/auth", authRoutes);
@@ -48,7 +48,7 @@ app.use("/api/services/janarogya", janArogyaRoutes);
 app.use("/api/services/ambulance-booking", ambulanceRoutes);
 app.use("/api/services/apply-insurance", applyInsurance);
 app.use("/api/services/apply-kendra", applyKendra);
-app.use("/api/employee/", employeeRoutes);
+app.use("/api/employee", employeeRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/admin",dashBoardRoutes)
 
