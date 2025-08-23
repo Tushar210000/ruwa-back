@@ -5,5 +5,5 @@ const { authorizeRole,auth } = require("../middlewares/auth");
 
 router.get("/admin/popup/getAll",auth,authorizeRole("ADMIN"), getAllPopups);
 router.post("/submit", submitPopup);
-router.delete("/admin/delete/:_id",auth,authorizeRole("ADMIN"),deletePopup)
+router.delete("/admin/delete/:id",auth,authorizeRole("ADMIN"),deletePopup)
 module.exports = router;

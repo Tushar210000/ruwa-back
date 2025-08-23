@@ -56,7 +56,7 @@ router.get(
 );
 
 router.patch(
-  "/employee/withdraw/:_id",
+  "/employee/withdraw/:id",
   auth,
   authorizeRole("EMPLOYEE", "USER"),
   janCtrl.withdrawApplication

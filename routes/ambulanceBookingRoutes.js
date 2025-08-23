@@ -42,7 +42,7 @@ router.get(
 );
 
 router.patch(
-  "/employee/withdraw/:_id",
+  "/employee/withdraw/:id",
   auth,
   authorizeRole("EMPLOYEE", "USER"),
   ambulanceCtrl.withdrawBooking
@@ -67,6 +67,6 @@ router.patch(
   ambulanceCtrl.updateBookingStatus
 );
 
-router.delete("/admin/delete/:_id",auth,authorizeRole('ADMIN'),ambulanceCtrl.deleteBookingByAdmin)
+router.delete("/admin/delete/:id",auth,authorizeRole('ADMIN'),ambulanceCtrl.deleteBookingByAdmin)
 
 module.exports = router;
