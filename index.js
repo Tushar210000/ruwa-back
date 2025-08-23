@@ -54,16 +54,25 @@ app.use("/api/admin",dashBoardRoutes)
 
 app.use("/api/u",profileRoutes)
 // Start server
-app._router.stack.forEach((middleware) => {
-  if (middleware.route) { // routes registered directly on app
-    console.log(middleware.route.path);
-  } else if (middleware.name === 'router') { // router middleware 
-    middleware.handle.stack.forEach((handler) => {
-      if (handler.route) {
-        console.log(handler.route.path);
-      }
-    });
-  }
-});
+
+// Debug: list all registered routes
+function printRoutes(app) {
+  app._router.stack.forEach((middleware) => {
+    if (middleware.route) {
+      // Routes directly on app
+      console.log("Route:", middleware.route.path);
+    } else if (middleware.name === "router") {
+      // Router middleware
+      middleware.handle.stack.forEach((handler) => {
+        if (handler.route) {
+          console.log("Route:", handler.route.path);
+        }
+      });
+    }
+  });
+}
+
+printRoutes(app);
+
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
